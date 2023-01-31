@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GestionUsuarios.Controllers
 {
-    [Authorize]
+    //[Authorize(Roles ="Administrador")]
+    //[Authorize(Roles ="Usuario")]
     public class CuentasController : Controller
     {
         //Administrar y gestionar usuarios

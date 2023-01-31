@@ -15,7 +15,11 @@
 </head>
 <body> 
     <partial name="_Navbar" />
-    <partial name="_Sidebar" />
+    @if (User.Identity.IsAuthenticated)
+    {
+        <partial name="_Sidebar" />
+    }
+    
     @RenderBody()
     <partial name="_Footer" />
 <!-- REQUIRED SCRIPTS -->

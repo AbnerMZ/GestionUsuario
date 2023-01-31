@@ -1,0 +1,85 @@
+﻿@model IEnumerable<IdentityRole>
+
+@{
+    ViewBag.Title = "Listado de roles";
+}
+
+
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Lista de Roles</h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="card">
+
+
+        <div class="card-body">
+          @if (Model.Any())
+          {
+              <a class="btn btn-primary mb-3" style="width:auto" asp-action="CrearRol"
+              asp-controller="Administracion">Crear Nuevo Rol</a>
+              
+              foreach (var role in Model)
+              {
+                  <div class="card mb-3">
+                      <div class="card-header">
+                          Role Id : @role.Id
+                      </div>
+                      <div class="card-body">
+                          <h5 class="card title">@role.Name</h5>
+                      </div>
+                      <div class="card-footer">
+                          <a asp-controller="Administracion" asp-action="EditarRol"
+                          asp-route-id="@role.Id" class="btn btn-primary">Editar</a>
+                          <a href="#" class="btn btn-danger">Eliminar</a>
+                      </div>
+                        </div>
+              }
+          }
+          else
+          {
+              <div class="card">
+                  <div class="card-header">
+                      Todavia no hay roles creados
+                  </div>
+                  <div class="card-body">
+                      <h5 class="card-title">
+                          Use este boton para crear un rol
+                      </h5>
+                      <br />
+                      <a class="btn btn-primary" style="width:auto"
+                      asp-controller="Administracion" asp-action="CrearRol">
+                      Crear Rol
+                      </a>
+                  </div>
+              </div>       
+          }
+
+
+
+
+
+
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+        </div>
+        <!-- /.card-footer-->
+      </div>
+      <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
