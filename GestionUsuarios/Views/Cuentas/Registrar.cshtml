@@ -1,0 +1,59 @@
+﻿@using GestionUsuarios.ViewsModels
+@model RegistroModelo
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<div class="hold-transition register-page">
+<div class="register-box">
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <a class="h1"><b>Registrar</b></a>
+    </div>
+    <div class="card-body">
+        <form id="registerForm" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="input-group mb-3">
+                <input asp-for="Email" class="form-control" placeholder="Email" aria-required="true" />
+                <div class="input-group-append">
+                <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+                </div>               
+                </div>    
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="input-group mb-3">
+                <input asp-for="Password" class="form-control" placeholder="Contraseña" aria-required="true" />
+                <div class="input-group-append">
+                <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+                </div>               
+                </div>    
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3">
+                <input asp-for="ValidarPassword" class="form-control" placeholder="Repetir Contraseña" aria-required="true" />
+                <div class="input-group-append">
+                <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+                </div>               
+                </div>    
+                <span asp-validation-for="ValidarPassword" class="text-danger"></span>
+            </div>         
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Registrar</button>
+        </form>
+        </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
